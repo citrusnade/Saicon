@@ -1,0 +1,40 @@
+{
+  "description": "Generate a full-stack web app with Next.js, Express, SQLite, etc.",
+  "prompt": {
+    "parts": [
+      {
+        "text": "You are a professional full-stack developer and code generator. Please generate a fully functional web app with the following stack:\n- Frontend: Next.js + React (TypeScript)\n- Backend: Node.js + Express\n- Database: SQLite\n\nFollow these steps and include all code, configurations, migrations, tests, and documentation."
+      },
+      {
+        "text": "###  Step 1: Project structure\n- Create `/frontend` with a Next.js TypeScript project.\n- Create `/backend` with an Express server.\n- Place SQLite file `/backend/db.sqlite3` and migrations in `/backend/migrations`.\n- Add root `README.md` and `.env.example` with `PORT`, `INVITE_CODES`, `DATABASE_PATH`."
+      },
+      {
+        "text": "###  Step 2: Authentication & User Management\n- Implement invitation-code-only login (no password).\n- Admin can issue invite codes; user signs up with a nickname only.\n- Clearly annotate API routes and DB schema."
+      },
+      {
+        "text": "###  Step 3: Roles & Permissions\n- Define two roles: admin and user.\n- Admin: can issue, add, or subtract points.\n- User: can send/receive points.\n- Enforce role-based access control middleware."
+      },
+      {
+        "text": "###  Step 4: Point Transfer & Balance\n- API and UI for users to send points by recipient nickname and amount.\n- Validate no negative balance; implement balance check."
+      },
+      {
+        "text": "###  Step 5: Admin Interface\n- Admin dashboard: list users, issue/adjust points.\n- Persist admin actions in a `transaction_history` table with timestamp, sender, receiver, amount, type (issue/adjust/send)."
+      },
+      {
+        "text": "###  Step 6: Transaction History\n- UI page with sortable/filterable history (by date desc, by user).\n- Display columns: date, sender, receiver, amount."
+      },
+      {
+        "text": "###  Step 7: Responsive UI/UX\n- Use mobile-first responsive CSS.\n- Dashboard: show balance, send button, history tab.\n- Toggle between user screen and admin screen via navigation bar."
+      },
+      {
+        "text": "###  Step 8: Setup & Deployment\n- Ensure `npm install` → `npm run dev` works out of the box.\n- SQLite file included; migrations via a script, e.g., `npm run migrate`.\n- Include deployment configuration for Heroku/Vercel (e.g., `vercel.json` or `Procfile`)."
+      },
+      {
+        "text": "###  Step 9: Tests with Jest\n- Write one Jest test each for:\n  - Invite-code login flow\n  - Point transfer API (success and failure cases)\n  - Admin point issuance"
+      },
+      {
+        "text": "###  Step 10: Final output\n- Provide complete directory tree.\n- Generate all files with full code.\n- Include `README.md` with setup instructions and env variables.\n- Provide migrations SQL/JS.\n- Provide `.env.example`."
+      }
+    ]
+  }
+}
