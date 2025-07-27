@@ -1,39 +1,9 @@
 {
-  "description": "Generate a full-stack web app with Next.js, Express, SQLite, etc.",
+  "description": "Generate a full-stack web app with Next.js, Express, and SQLite",
   "prompt": {
     "parts": [
       {
-        "text": "You are a professional full-stack developer and code generator. Please generate a fully functional web app with the following stack:\n- Frontend: Next.js + React (TypeScript)\n- Backend: Node.js + Express\n- Database: SQLite\n\nFollow these steps and include all code, configurations, migrations, tests, and documentation."
-      },
-      {
-        "text": "###  Step 1: Project structure\n- Create `/frontend` with a Next.js TypeScript project.\n- Create `/backend` with an Express server.\n- Place SQLite file `/backend/db.sqlite3` and migrations in `/backend/migrations`.\n- Add root `README.md` and `.env.example` with `PORT`, `INVITE_CODES`, `DATABASE_PATH`."
-      },
-      {
-        "text": "###  Step 2: Authentication & User Management\n- Implement invitation-code-only login (no password).\n- Admin can issue invite codes; user signs up with a nickname only.\n- Clearly annotate API routes and DB schema."
-      },
-      {
-        "text": "###  Step 3: Roles & Permissions\n- Define two roles: admin and user.\n- Admin: can issue, add, or subtract points.\n- User: can send/receive points.\n- Enforce role-based access control middleware."
-      },
-      {
-        "text": "###  Step 4: Point Transfer & Balance\n- API and UI for users to send points by recipient nickname and amount.\n- Validate no negative balance; implement balance check."
-      },
-      {
-        "text": "###  Step 5: Admin Interface\n- Admin dashboard: list users, issue/adjust points.\n- Persist admin actions in a `transaction_history` table with timestamp, sender, receiver, amount, type (issue/adjust/send)."
-      },
-      {
-        "text": "###  Step 6: Transaction History\n- UI page with sortable/filterable history (by date desc, by user).\n- Display columns: date, sender, receiver, amount."
-      },
-      {
-        "text": "###  Step 7: Responsive UI/UX\n- Use mobile-first responsive CSS.\n- Dashboard: show balance, send button, history tab.\n- Toggle between user screen and admin screen via navigation bar."
-      },
-      {
-        "text": "###  Step 8: Setup & Deployment\n- Ensure `npm install` → `npm run dev` works out of the box.\n- SQLite file included; migrations via a script, e.g., `npm run migrate`.\n- Include deployment configuration for Heroku/Vercel (e.g., `vercel.json` or `Procfile`)."
-      },
-      {
-        "text": "###  Step 9: Tests with Jest\n- Write one Jest test each for:\n  - Invite-code login flow\n  - Point transfer API (success and failure cases)\n  - Admin point issuance"
-      },
-      {
-        "text": "###  Step 10: Final output\n- Provide complete directory tree.\n- Generate all files with full code.\n- Include `README.md` with setup instructions and env variables.\n- Provide migrations SQL/JS.\n- Provide `.env.example`."
+        "text": "あなたはプロのフルスタック開発者兼コードジェネレータです。以下の要件に従い、Next.js + React（TypeScript）をフロントエンド、Node.js + Expressをバックエンド、SQLiteをデータベースに使った完全動作するWebアプリ一式を生成してください。全コード、設定、マイグレーション、READMEを含めて出力してください。\n\n【要件】\n\n1. 認証／ユーザー管理\n   - 招待コード制のシンプルログイン（パスワード不要）\n   - 招待コードは管理者が発行可能\n   - ユーザーはニックネーム登録のみ\n\n2. ロール\n   - 管理者：ポイントの発行・加算・減算が可能\n   - 一般ユーザー：管理者から発行されたポイントを受け取り、他のユーザーに送信可能\n\n3. ポイント送受信機能\n   - ユーザー間で自由にポイントを送受信\n   - 送信フォーム：受信者ニックネーム＋送信ポイント数\n   - 残高チェックおよび負数残高禁止のバリデーション\n\n4. 発行／調整機能\n   - 管理者専用画面で任意ユーザーにポイント発行・調整\n   - 発行・調整履歴を記録\n\n5. トランザクション履歴\n   - 日時、送信者、受信者、ポイント数を一覧表示\n   - 最新順およびユーザー別のソート・フィルタリング機能\n\n6. UI/UX\n   - モバイルファーストでレスポンシブデザイン\n   - ダッシュボード画面：残高、送受信ボタン、履歴タブ\n   - 管理者画面と一般画面をナビゲーションで切り替え可能\n\n7. 環境構築・デプロイ\n   - npm install → npm run dev で即時動作可能\n   - SQLiteファイルはリポジトリに含め、マイグレーション用スクリプトを用意\n   - HerokuやVercelにそのままデプロイ可能な設定\n\n8. テスト\n   - 認証、送受信、発行の主要APIを対象としたJestによる単体テストを各1件以上作成\n\n【出力形式】\n- フロントエンド：/frontend 配下に Next.js プロジェクト\n- バックエンド：/backend 配下に Express サーバー\n- データベース：/backend/db.sqlite3 および /backend/migrations\n- ルートに README.md：セットアップ手順、環境変数説明\n- .env.example：PORT, INVITE_CODES, DATABASE_PATH など\n\n【最終条件】\n- 上記要件を満たす完全なディレクトリ構成とコードを生成すること\n- 生成物は1つのアーカイブ(zip)としてエクスポートできる構成にすること"
       }
     ]
   }
