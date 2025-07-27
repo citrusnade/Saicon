@@ -1,0 +1,16 @@
+{
+  "name": "point-app-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo for the Point Management Web App",
+  "scripts": {
+    "install:all": "npm install && (cd backend && npm install) && (cd frontend && npm install)",
+    "dev": "concurrently \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "db:migrate": "cd backend && npm run db:migrate"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
